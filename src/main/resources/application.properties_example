@@ -1,0 +1,10 @@
+## This is an example of a properties file. You can use this file as a template and
+## replace all properties which contain <values> with your own values.
+
+ddns.ipresolver.url=http://whatismyip.akamai.com
+ddns.task.delay.milliseconds=300000
+ddns.ip.filename=</path/to/ddns/ip>
+
+cloudflare.api.baseUrl=https://api.cloudflare.com/client/v4
+cloudflare.api.domainName=<domain_name>
+cloudflare.api.token=<cloudflare_api_token>
