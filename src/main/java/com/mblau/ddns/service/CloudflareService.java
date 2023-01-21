@@ -54,11 +54,11 @@ public class CloudflareService implements IDnsService {
         params.put("type", "A");
         String result = getRequest(endpoint, params);
         CloudFlareDnsRecordsResponse recordsResponse = JsonUtil.toModel(result, CloudFlareDnsRecordsResponse.class);
-        return recordsResponse.getDnsRecordList().stream()
+        return recordsResponse.dnsRecordList().stream()
                 .filter(dnsRecord -> dnsRecord.zoneId().equals(zoneId))
                 .filter(dnsRecord -> dnsRecord.name().equals(domainName))
                 .findFirst()
-                .orElseThrow(() -> new DnsRecordNotFoundException("DNS record not found for zone " + zoneId + ". Total records found: " + recordsResponse.getDnsRecordList().size()));
+                .orElseThrow(() -> new DnsRecordNotFoundException("DNS record not found for zone " + zoneId + ". Total records found: " + recordsResponse.dnsRecordList().size()));
     }
 
     private void updateDnsRecordIp(DnsRecordResponse dnsRecord, String zoneId, String ip) throws IOException, URISyntaxException, InterruptedException {
